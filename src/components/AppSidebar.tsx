@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Home, Users, Compass, BookOpen, Map, Mail, Mountain } from "lucide-react";
+import { Home, Users, Compass, BookOpen, Map, Mail, Mountain, Gamepad2 } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -15,6 +15,7 @@ import {
 
 const items = [
   { title: "Home", url: "/", icon: Home },
+  { title: "The Game", url: "/game", icon: Gamepad2 },
   { title: "The Team", url: "/team", icon: Users },
   { title: "Our Journey", url: "/journey", icon: Compass },
   { title: "Documentation", url: "/documentation", icon: BookOpen },
