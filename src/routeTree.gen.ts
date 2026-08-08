@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as JourneyRouteImport } from './routes/journey'
+import { Route as GameRouteImport } from './routes/game'
 import { Route as DocumentationRouteImport } from './routes/documentation'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
@@ -29,6 +30,11 @@ const RoadmapRoute = RoadmapRouteImport.update({
 const JourneyRoute = JourneyRouteImport.update({
   id: '/journey',
   path: '/journey',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GameRoute = GameRouteImport.update({
+  id: '/game',
+  path: '/game',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DocumentationRoute = DocumentationRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/documentation': typeof DocumentationRoute
+  '/game': typeof GameRoute
   '/journey': typeof JourneyRoute
   '/roadmap': typeof RoadmapRoute
   '/team': typeof TeamRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/documentation': typeof DocumentationRoute
+  '/game': typeof GameRoute
   '/journey': typeof JourneyRoute
   '/roadmap': typeof RoadmapRoute
   '/team': typeof TeamRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/documentation': typeof DocumentationRoute
+  '/game': typeof GameRoute
   '/journey': typeof JourneyRoute
   '/roadmap': typeof RoadmapRoute
   '/team': typeof TeamRoute
@@ -78,16 +87,25 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/documentation'
+    | '/game'
     | '/journey'
     | '/roadmap'
     | '/team'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/documentation' | '/journey' | '/roadmap' | '/team'
+  to:
+    | '/'
+    | '/contact'
+    | '/documentation'
+    | '/game'
+    | '/journey'
+    | '/roadmap'
+    | '/team'
   id:
     | '__root__'
     | '/'
     | '/contact'
     | '/documentation'
+    | '/game'
     | '/journey'
     | '/roadmap'
     | '/team'
@@ -97,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   DocumentationRoute: typeof DocumentationRoute
+  GameRoute: typeof GameRoute
   JourneyRoute: typeof JourneyRoute
   RoadmapRoute: typeof RoadmapRoute
   TeamRoute: typeof TeamRoute
@@ -123,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/journey'
       fullPath: '/journey'
       preLoaderRoute: typeof JourneyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/game': {
+      id: '/game'
+      path: '/game'
+      fullPath: '/game'
+      preLoaderRoute: typeof GameRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/documentation': {
@@ -153,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   DocumentationRoute: DocumentationRoute,
+  GameRoute: GameRoute,
   JourneyRoute: JourneyRoute,
   RoadmapRoute: RoadmapRoute,
   TeamRoute: TeamRoute,
@@ -160,13 +187,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Home, Users, Compass, BookOpen, Map, Mail, Mountain } from "lucide-react";
+import { Home, Users, Compass, BookOpen, Map, Mail, Mountain, Gamepad2 } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
