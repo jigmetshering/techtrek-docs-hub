@@ -15,6 +15,7 @@ import {
 
 const items = [
   { title: "Home", url: "/", icon: Home },
+  { title: "The Game", url: "/game", icon: Gamepad2 },
   { title: "The Team", url: "/team", icon: Users },
   { title: "Our Journey", url: "/journey", icon: Compass },
   { title: "Documentation", url: "/documentation", icon: BookOpen },
