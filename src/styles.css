@@ -46,43 +46,43 @@
 :root {
   --radius: 0.75rem;
   /* Neon Mint dark palette */
-  --background: oklch(0.18 0.03 240);
+  --background: oklch(0.19 0.012 235);
   --foreground: oklch(0.97 0.01 160);
-  --card: oklch(0.22 0.035 240);
+  --card: oklch(0.225 0.012 235);
   --card-foreground: oklch(0.97 0.01 160);
-  --popover: oklch(0.22 0.035 240);
+  --popover: oklch(0.225 0.012 235);
   --popover-foreground: oklch(0.97 0.01 160);
-  --primary: oklch(0.82 0.18 165);
+  --primary: oklch(0.74 0.09 168);
   --primary-foreground: oklch(0.18 0.03 240);
-  --secondary: oklch(0.28 0.04 240);
+  --secondary: oklch(0.27 0.012 235);
   --secondary-foreground: oklch(0.97 0.01 160);
-  --muted: oklch(0.26 0.03 240);
+  --muted: oklch(0.26 0.01 235);
   --muted-foreground: oklch(0.68 0.02 200);
-  --accent: oklch(0.38 0.08 175);
+  --accent: oklch(0.32 0.02 200);
   --accent-foreground: oklch(0.97 0.01 160);
   --destructive: oklch(0.65 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.3 0.03 230);
-  --input: oklch(0.28 0.03 235);
-  --ring: oklch(0.82 0.18 165);
+  --border: oklch(0.29 0.01 235);
+  --input: oklch(0.27 0.01 235);
+  --ring: oklch(0.74 0.09 168);
 
-  --mint: oklch(0.82 0.18 165);
-  --mint-glow: oklch(0.9 0.18 160);
+  --mint: oklch(0.76 0.08 168);
+  --mint-glow: oklch(0.82 0.07 165);
   --forest: oklch(0.38 0.08 165);
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.18 0.03 240) 0%, oklch(0.28 0.06 200) 60%, oklch(0.4 0.12 170) 100%);
+  --gradient-hero: linear-gradient(180deg, oklch(0.21 0.014 220) 0%, oklch(0.19 0.012 235) 100%);
   --gradient-mint: linear-gradient(135deg, var(--mint) 0%, var(--mint-glow) 100%);
-  --shadow-mint: 0 10px 40px -10px color-mix(in oklab, var(--mint) 45%, transparent);
-  --shadow-card: 0 8px 24px -8px oklch(0 0 0 / 0.4);
+  --shadow-mint: 0 2px 10px -4px color-mix(in oklab, var(--mint) 25%, transparent);
+  --shadow-card: 0 1px 3px oklch(0 0 0 / 0.25);
 
-  --sidebar: oklch(0.15 0.025 240);
+  --sidebar: oklch(0.165 0.01 235);
   --sidebar-foreground: oklch(0.92 0.01 160);
-  --sidebar-primary: oklch(0.82 0.18 165);
+  --sidebar-primary: oklch(0.74 0.09 168);
   --sidebar-primary-foreground: oklch(0.18 0.03 240);
-  --sidebar-accent: oklch(0.24 0.04 240);
+  --sidebar-accent: oklch(0.245 0.012 235);
   --sidebar-accent-foreground: oklch(0.97 0.01 160);
-  --sidebar-border: oklch(0.26 0.03 235);
-  --sidebar-ring: oklch(0.82 0.18 165);
+  --sidebar-border: oklch(0.26 0.01 235);
+  --sidebar-ring: oklch(0.74 0.09 168);
 }
 
 @layer base {
@@ -121,7 +121,18 @@
 }
 @utility grid-bg {
   background-image:
-    linear-gradient(to right, oklch(0.82 0.18 165 / 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(0.82 0.18 165 / 0.06) 1px, transparent 1px);
+    linear-gradient(to right, oklch(0.76 0.06 168 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.76 0.06 168 / 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
+}
+
+@utility slow-pan {
+  animation: slow-pan 18s ease-in-out infinite alternate;
+}
+@keyframes slow-pan {
+  from { transform: scale(1.06) translate3d(-1.5%, 1%, 0); }
+  to { transform: scale(1.14) translate3d(1.5%, -1%, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slow-pan { animation: none; }
 }
