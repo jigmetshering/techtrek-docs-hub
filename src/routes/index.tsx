@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="space-y-16">
+    <div className="mx-auto max-w-5xl space-y-16 px-6 py-12">
       <section className="grid items-center gap-8 lg:grid-cols-2">
         <div>
           <div className="text-xs uppercase tracking-[0.2em] text-mint">Tech Trek 2026</div>

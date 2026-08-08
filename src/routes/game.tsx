@@ -54,7 +54,7 @@ const facts = [
 
 function GamePage() {
   return (
-    <div className="space-y-14">
+    <div className="mx-auto max-w-5xl space-y-14 px-6 py-12">
       <PageHeader
         eyebrow="The Game"
         title="A quiet trek, one ridge at a time"
