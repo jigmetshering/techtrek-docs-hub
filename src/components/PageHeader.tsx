@@ -6,15 +6,18 @@ interface PageHeaderProps {
 
 export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
   return (
-    <header className="border-b border-border/60 pb-8">
+    <header className="border-b border-border pb-10">
       {eyebrow && (
-        <div className="text-xs uppercase tracking-[0.25em] text-mint">{eyebrow}</div>
+        <div className="rule-label flex items-center gap-3 text-primary">
+          <span className="h-px w-10 bg-primary" />
+          {eyebrow}
+        </div>
       )}
-      <h1 className="mt-3 font-display text-4xl font-bold tracking-tight md:text-5xl">
-        {title}
-      </h1>
+      <h1 className="display-xl mt-5 text-5xl md:text-7xl">{title}</h1>
       {description && (
-        <p className="mt-3 max-w-2xl text-base text-muted-foreground">{description}</p>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          {description}
+        </p>
       )}
     </header>
   );
