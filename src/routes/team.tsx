@@ -23,7 +23,7 @@ function TeamPage() {
       <PageHeader
         eyebrow="Who we are"
         title="The team"
-        description="A small crew working together to build something we're proud of. Replace these placeholders with real names, photos and bios."
+        description="A small crew working together to build something we're proud of."
       />
       <div className="mt-12 grid gap-5 sm:grid-cols-2">
         {members.map((m) => (
