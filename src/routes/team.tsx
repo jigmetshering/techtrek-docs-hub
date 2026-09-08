@@ -12,10 +12,9 @@ export const Route = createFileRoute("/team")({
 });
 
 const members = [
-  { name: "Member One", role: "Lead Developer", bio: "Drives the codebase, architecture and gameplay systems.", initial: "1" },
-  { name: "Member Two", role: "Game Designer", bio: "Owns mechanics, level design and the player experience.", initial: "2" },
-  { name: "Member Three", role: "Artist", bio: "Visual style, characters, UI and in-game assets.", initial: "3" },
-  { name: "Member Four", role: "Audio & QA", bio: "Sound design, music and quality assurance.", initial: "4" },
+  { name: "Tandin Wangyel", role: "Lead Developer", bio: "Drives the codebase, architecture and gameplay systems.", initial: "TW" },
+  { name: "Jigme Tshering", role: "Documentation and Website", bio: "Owns project documentation, site content and the public-facing experience.", initial: "JT" },
+  { name: "Sangay Tharchen", role: "Design", bio: "Shapes the visual style, characters, UI and in-game assets.", initial: "ST" },
 ];
 
 function TeamPage() {
