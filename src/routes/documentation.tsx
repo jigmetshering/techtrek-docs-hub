@@ -33,6 +33,14 @@ type Block =
   | { kind: "table"; head: string[]; rows: string[][] }
   | { kind: "code"; text: string };
 
+type EditorImage = {
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+  compact?: boolean;
+};
+
 const sections: { value: string; label: string; title: string; blocks: Block[] }[] = [
   {
     value: "overview",
@@ -390,7 +398,7 @@ TOTAL                        103/103  (100% pass rate)`,
   },
 ];
 
-const editorImages = {
+const editorImages: Record<string, EditorImage[]> = {
   architecture: [
     {
       src: tilemapWorkspaceAsset.url,
@@ -414,7 +422,7 @@ const editorImages = {
       caption: "Tile sources are configured against the 16×16 grid before they are painted into a realm.",
     },
   ],
-} satisfies Record<string, Array<{ src: string; alt: string; title: string; caption: string; compact?: boolean }>>;
+};
 
 function renderBlock(b: Block, i: number) {
   switch (b.kind) {
