@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import tilemapWorkspaceAsset from "@/assets/godot-tilemap-workspace.png.asset.json";
+import tilesetSetupAsset from "@/assets/godot-tileset-setup.png.asset.json";
+import editorTabsAsset from "@/assets/godot-editor-tabs.png.asset.json";
 
 export const Route = createFileRoute("/documentation")({
   head: () => ({
@@ -387,6 +390,32 @@ TOTAL                        103/103  (100% pass rate)`,
   },
 ];
 
+const editorImages = {
+  architecture: [
+    {
+      src: tilemapWorkspaceAsset.url,
+      alt: "Godot editor showing the TileMap workspace and terrain palette",
+      title: "Building the world with TileMap layers",
+      caption: "The scene workspace combines a grid-based map with reusable terrain sources and painting tools.",
+    },
+    {
+      src: editorTabsAsset.url,
+      alt: "Godot editor toolbar with TileSet and TileMap workspaces",
+      title: "TileSet and TileMap workflow",
+      caption: "The dedicated TileSet and TileMap workspaces keep source-tile setup separate from world painting.",
+      compact: true,
+    },
+  ],
+  art: [
+    {
+      src: tilesetSetupAsset.url,
+      alt: "Godot TileSet editor showing the grass tile source and texture settings",
+      title: "Preparing a terrain source",
+      caption: "Tile sources are configured against the 16×16 grid before they are painted into a realm.",
+    },
+  ],
+} satisfies Record<string, Array<{ src: string; alt: string; title: string; caption: string; compact?: boolean }>>;
+
 function renderBlock(b: Block, i: number) {
   switch (b.kind) {
     case "h":
@@ -479,6 +508,29 @@ function DocsPage() {
               <div className="rule-label text-primary">{s.label}</div>
               <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight md:text-4xl">{s.title}</h2>
               <div className="mt-6">{s.blocks.map(renderBlock)}</div>
+              {editorImages[s.value]?.length ? (
+                <div className="mt-10 grid gap-5 md:grid-cols-2">
+                  {editorImages[s.value].map((image) => (
+                    <figure
+                      key={image.title}
+                      className={`border border-border bg-secondary ${image.compact ? "md:col-span-2" : ""}`}
+                    >
+                      <div className={`flex items-center justify-center overflow-hidden bg-foreground ${image.compact ? "min-h-24 p-5" : "aspect-[4/3]"}`}>
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          loading="lazy"
+                          className={image.compact ? "h-auto w-full object-contain" : "h-full w-full object-cover"}
+                        />
+                      </div>
+                      <figcaption className="border-t border-border bg-card p-4">
+                        <span className="font-display text-lg font-extrabold">{image.title}</span>
+                        <span className="mt-1 block text-sm text-muted-foreground">{image.caption}</span>
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              ) : null}
             </article>
           </TabsContent>
         ))}
