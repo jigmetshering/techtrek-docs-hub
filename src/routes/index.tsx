@@ -1,24 +1,26 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { ClipCard } from "@/components/ClipCard";
 import heroArt from "@/assets/game-hero.jpg";
-import shot1 from "@/assets/game-1.jpg";
-import shot2 from "@/assets/game-2.jpg";
-import shot3 from "@/assets/game-3.jpg";
+import screenVillage from "@/assets/screen-village.png";
+import screenRealm from "@/assets/screen-realm.png";
+import charPlayer from "@/assets/char-player.png";
+import charAumJomo from "@/assets/char-aumjomo.png";
+import charTshomen from "@/assets/char-tshomen.png";
+import charMonk from "@/assets/char-taktsangmonk.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tech Trek — Project Documentation" },
+      { title: "The Tapestry of Monyul — TechTrek 2026, Team Samsara" },
       {
         name: "description",
         content:
-          "Our journey building a game for the Tech Trek competition — the game itself, the team, our process and roadmap.",
+          "Project documentation for The Tapestry of Monyul, a 2D narrative exploration game about Bhutan's sacred sites, built for TechTrek 2026 by team Samsara.",
       },
-      { property: "og:title", content: "Tech Trek — Project Documentation" },
+      { property: "og:title", content: "The Tapestry of Monyul — TechTrek 2026" },
       {
         property: "og:description",
-        content: "The game, the team and the process behind our Tech Trek project.",
+        content: "A game about paying attention, set across Jomolhari, Drakay Pangtsho and Taktsang.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -28,17 +30,23 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { value: "1", label: "game in the making" },
-  { value: "4", label: "people on the team" },
-  { value: "20", label: "minute playthrough" },
+  { value: "3", label: "sacred realms (nyes)" },
+  { value: "9", label: "main & side quests" },
+  { value: "103", label: "automated tests passing" },
 ];
 
 const sections = [
-  { to: "/game", n: "01", title: "The Game", desc: "A preface, looping clips and screenshots from the current build." },
-  { to: "/team", n: "02", title: "The Team", desc: "The four people behind the code, design, art and audio." },
-  { to: "/journey", n: "03", title: "Our Journey", desc: "From the first spark of an idea to the build we play today." },
-  { to: "/documentation", n: "04", title: "Documentation", desc: "Design decisions, tech notes, art direction and testing." },
-  { to: "/roadmap", n: "05", title: "Roadmap", desc: "What is finished, what is active and what comes next." },
+  { to: "/game", n: "01", title: "The Game", desc: "The story, the three realms, the cast and screenshots from the build." },
+  { to: "/team", n: "02", title: "The Team", desc: "Team Samsara — documentation, storyline, sprites and code." },
+  { to: "/journey", n: "03", title: "Our Journey", desc: "From the first question to four sprints and a playable loop." },
+  { to: "/documentation", n: "04", title: "Documentation", desc: "GNH alignment, requirements, Godot architecture, art pipeline and testing." },
+  { to: "/roadmap", n: "05", title: "Roadmap", desc: "What is finished, what is active and what comes before submission." },
+];
+
+const realms = [
+  { img: charAumJomo, name: "Jhomo Lhari", who: "Aum Jomo", line: "An offering ritual you cannot rush." },
+  { img: charTshomen, name: "Drakay Pangtsho", who: "Tshomen", line: "Notice what is wrong with the lake yourself." },
+  { img: charMonk, name: "Tak Tsang", who: "The monks", line: "Gather a history, then choose how to retell it." },
 ];
 
 function Index() {
@@ -48,21 +56,21 @@ function Index() {
       <section className="relative flex min-h-[78vh] items-end overflow-hidden">
         <img
           src={heroArt}
-          alt="Key art from our game: a traveller overlooking a calm mountain range"
+          alt="Key art: a traveller overlooking a Himalayan range"
           width={1600}
           height={900}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/70 to-foreground/20" />
         <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-28 md:px-8">
-          <div className="rule-label text-background/70">Tech Trek 2026</div>
+          <div className="rule-label text-background/70">TechTrek 2026 · Team Samsara</div>
           <h1 className="display-xl mt-6 max-w-4xl text-5xl text-background sm:text-6xl md:text-8xl">
-            A game built in the open,{" "}
-            <span className="text-primary">documented every step.</span>
+            The Tapestry of <span className="text-primary">Monyul.</span>
           </h1>
           <p className="mt-7 max-w-xl text-lg text-background/80">
-            This is the living record of our competition project — what we are
-            making, how we are making it, and where it goes next.
+            A 2D narrative exploration game across three sacred sites in Bhutan —
+            where the lesson is never just spoken, it is the mechanic. This is
+            the full record of how we built it.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
@@ -87,12 +95,15 @@ function Index() {
           <div>
             <div className="rule-label text-primary">Welcome</div>
             <h2 className="mt-5 text-3xl leading-tight md:text-4xl">
-              A short exploration game about crossing a mountain range with
-              limited supplies — and the full story of how it got built.
+              Play as Tashi, a young villager who stopped believing the old
+              teachings mattered — until a dream sends them to three sacred
+              places.
             </h2>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              No combat, no timers. Just reading the landscape, budgeting what
-              you carry, and deciding when to push on and when to make camp.
+              Built in Godot 4 for the TechTrek 2026 theme, "Code, Create, and
+              Educate." Ley-Ju-Drey — cause and effect — is something the game
+              makes you feel: rush a ritual and you begin again. Attention is
+              tracked as a stat, and it decides how the story ends.
             </p>
           </div>
           <dl className="grid content-start gap-6">
@@ -106,26 +117,62 @@ function Index() {
         </div>
       </section>
 
-      {/* Clips */}
+      {/* Realms */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-8">
           <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="text-3xl md:text-5xl">The game so far</h2>
+            <h2 className="text-3xl md:text-5xl">Three sacred realms</h2>
             <Link to="/game" className="rule-label text-primary hover:underline">
-              More clips & screenshots →
+              More about the game →
             </Link>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <ClipCard image={shot1} title="Setting out" caption="The opening trail and first ambient loop." />
-            <ClipCard image={shot2} title="Making camp" caption="Rest points where you save and plan ahead." />
-            <ClipCard image={shot3} title="Below the ridge" caption="Cave sections that test light management." />
+            {realms.map((r) => (
+              <article key={r.name} className="border border-border bg-card p-6">
+                <img
+                  src={r.img}
+                  alt={r.who}
+                  width={192}
+                  height={192}
+                  loading="lazy"
+                  className="h-24 w-24 object-contain [image-rendering:pixelated]"
+                />
+                <h3 className="mt-3 font-display text-2xl font-extrabold tracking-tight">{r.name}</h3>
+                <div className="rule-label mt-2 text-primary">{r.who}</div>
+                <p className="mt-3 text-muted-foreground">{r.line}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <img
+              src={screenVillage}
+              alt="The village map in the current build"
+              loading="lazy"
+              className="w-full border border-border object-cover [image-rendering:pixelated]"
+            />
+            <img
+              src={screenRealm}
+              alt="A sacred realm map in the current build"
+              loading="lazy"
+              className="w-full border border-border object-cover [image-rendering:pixelated]"
+            />
           </div>
         </div>
       </section>
 
       {/* Index of sections */}
       <section className="mx-auto max-w-7xl px-5 py-20 md:px-8">
-        <h2 className="text-3xl md:text-5xl">Explore the documentation</h2>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <h2 className="text-3xl md:text-5xl">Explore the documentation</h2>
+          <img
+            src={charPlayer}
+            alt="Tashi, the player character"
+            width={192}
+            height={192}
+            loading="lazy"
+            className="h-20 w-20 object-contain [image-rendering:pixelated]"
+          />
+        </div>
         <div className="mt-10 border-t border-border">
           {sections.map((s) => (
             <Link

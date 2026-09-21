@@ -4,37 +4,56 @@ import { PageHeader } from "@/components/PageHeader";
 export const Route = createFileRoute("/team")({
   head: () => ({
     meta: [
-      { title: "The Team — Tech Trek Docs" },
-      { name: "description", content: "Meet the team building our Tech Trek project." },
+      { title: "Team Samsara — The Tapestry of Monyul" },
+      { name: "description", content: "Meet team Samsara, the three people building The Tapestry of Monyul for TechTrek 2026." },
+      { property: "og:title", content: "Team Samsara — The Tapestry of Monyul" },
+      { property: "og:description", content: "Documentation, storyline, sprites and code — the three people behind the project." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: TeamPage,
 });
 
 const members = [
-  { name: "Tandin Wangyel", role: "Lead Developer", bio: "Drives the codebase, architecture and gameplay systems.", initial: "TW" },
-  { name: "Jigme Tshering", role: "Documentation and Website", bio: "Owns project documentation, site content and the public-facing experience.", initial: "JT" },
-  { name: "Sangay Tharchen", role: "Design", bio: "Shapes the visual style, characters, UI and in-game assets.", initial: "ST" },
+  {
+    name: "Tandin Wangyel",
+    role: "Documentation / Developer",
+    bio: "Builds the game in Godot — player physics, autoloads, quest scripts and the automated GDScript test suite.",
+    initial: "TW",
+  },
+  {
+    name: "Jigme Tshering",
+    role: "Documentation / Storyline / Website",
+    bio: "Shapes the storyline and writes the project documentation, and owns this site and the public-facing material.",
+    initial: "JT",
+  },
+  {
+    name: "Sangay Tharchen",
+    role: "Documentation / Storyline / Sprites",
+    bio: "Draws the pixel art — Tashi's gho, the monks, the deities and the Bhutanese architecture props.",
+    initial: "ST",
+  },
 ];
 
 function TeamPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-12">
+    <div className="mx-auto max-w-5xl px-5 py-14 md:px-8">
       <PageHeader
-        eyebrow="Who we are"
+        eyebrow="Team Samsara"
         title="The team"
-        description="A small crew working together to build something we're proud of."
+        description="Three of us, building a game about paying attention for TechTrek 2026."
       />
-      <div className="mt-12 grid gap-5 sm:grid-cols-2">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2">
         {members.map((m) => (
-          <div key={m.name} className="rounded-xl border border-border bg-card p-6 shadow-card">
+          <div key={m.name} className="border border-border bg-card p-6">
             <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-mint-gradient font-display text-xl font-bold text-primary-foreground shadow-mint">
+              <div className="font-display flex h-14 w-14 items-center justify-center bg-primary text-xl font-extrabold text-primary-foreground">
                 {m.initial}
               </div>
               <div>
-                <div className="font-display text-lg font-semibold">{m.name}</div>
-                <div className="text-xs uppercase tracking-widest text-mint">{m.role}</div>
+                <div className="font-display text-xl font-extrabold tracking-tight">{m.name}</div>
+                <div className="rule-label mt-1 text-primary">{m.role}</div>
               </div>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">{m.bio}</p>
