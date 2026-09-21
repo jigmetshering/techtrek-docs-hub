@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
 import heroArt from "@/assets/game-hero.jpg";
-import screenVillage from "@/assets/screen-village.png";
-import screenRealm from "@/assets/screen-realm.png";
+import villageShrineAsset from "@/assets/village-shrine-scene.png.asset.json";
+import lakeTshomenAsset from "@/assets/lake-tshomen-scene.png.asset.json";
+import forestMonkAsset from "@/assets/forest-monk-scene.png.asset.json";
 import charPlayer from "@/assets/char-player.png";
 import charGuide from "@/assets/char-guide.png";
 import charAumJomo from "@/assets/char-aumjomo.png";
@@ -77,6 +78,27 @@ const cast = [
   { image: charTshomen, name: "Tshomen", role: "Lake deity of Drakay Pangtsho" },
   { image: charMonk, name: "Taktsang monk", role: "Keeper of the monastery's oral history" },
   { image: charHerder, name: "Dema", role: "Yak herder on the Jomolhari trail" },
+];
+
+const buildScreenshots = [
+  {
+    src: villageShrineAsset.url,
+    alt: "Tashi meeting a villager beside a Bhutanese chorten in the village",
+    title: "The village shrine",
+    caption: "Tashi begins among familiar village paths, people and sacred landmarks.",
+  },
+  {
+    src: lakeTshomenAsset.url,
+    alt: "Tashi standing beside Tshomen at the edge of the sacred lake",
+    title: "Drakay Pangtsho",
+    caption: "The lake encounter asks the player to observe the water and its surroundings carefully.",
+  },
+  {
+    src: forestMonkAsset.url,
+    alt: "Tashi speaking with a monk on a forest path",
+    title: "A keeper of oral history",
+    caption: "Conversations with monks provide the fragments needed to carry the story forward.",
+  },
 ];
 
 function GamePage() {
@@ -201,18 +223,25 @@ function GamePage() {
 
       <section className="space-y-5">
         <h2 className="text-3xl md:text-4xl">Screenshots from the build</h2>
-        <div className="grid gap-5 sm:grid-cols-2">
-          {[
-            { src: screenVillage, alt: "The village map in the current build" },
-            { src: screenRealm, alt: "A sacred realm map in the current build" },
-          ].map((s) => (
-            <img
-              key={s.alt}
-              src={s.src}
-              alt={s.alt}
-              loading="lazy"
-              className="w-full border border-border object-cover [image-rendering:pixelated]"
-            />
+        <div className="grid gap-5 md:grid-cols-2">
+          {buildScreenshots.map((s, index) => (
+            <figure
+              key={s.title}
+              className={`border border-border bg-card ${index === 0 ? "md:col-span-2" : ""}`}
+            >
+              <div className={`overflow-hidden bg-secondary ${index === 0 ? "aspect-[3/2] md:aspect-[16/7]" : "aspect-[16/10]"}`}>
+                <img
+                  src={s.src}
+                  alt={s.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover [image-rendering:pixelated]"
+                />
+              </div>
+              <figcaption className="border-t border-border p-4">
+                <span className="font-display text-lg font-extrabold">{s.title}</span>
+                <span className="mt-1 block text-sm text-muted-foreground">{s.caption}</span>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </section>
