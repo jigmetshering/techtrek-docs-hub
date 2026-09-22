@@ -18,19 +18,19 @@ export const Route = createFileRoute("/team")({
 const members = [
   {
     name: "Tandin Wangyel",
-    role: "Documentation / Developer",
+    role: "Lead Developer",
     bio: "Builds the game in Godot — player physics, autoloads, quest scripts and the automated GDScript test suite.",
     initial: "TW",
   },
   {
     name: "Jigme Tshering",
-    role: "Documentation / Storyline / Website",
+    role: "Documentation and Website",
     bio: "Shapes the storyline and writes the project documentation, and owns this site and the public-facing material.",
     initial: "JT",
   },
   {
     name: "Sangay Tharchen",
-    role: "Documentation / Storyline / Sprites",
+    role: "Design",
     bio: "Draws the pixel art — Tashi's gho, the monks, the deities and the Bhutanese architecture props.",
     initial: "ST",
   },

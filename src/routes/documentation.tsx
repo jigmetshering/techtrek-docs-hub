@@ -199,8 +199,8 @@ const sections: { value: string; label: string; title: string; blocks: Block[] }
         kind: "list",
         items: [
           "ground — grass, plains and paths; Y-sorting disabled",
-          "props — boulders, houses, shrines and trees; y_sort_enabled with 16×16 sorting origins so characters render correctly in front of or behind objects",
-          "CleanWater — visual water overlays; Y-sorting disabled",
+          "props/yset — buildings, trees and rocks; Y-sorting enabled so characters render correctly in front of or behind objects",
+          "cliff — raised cliff terrain; Y-sorting enabled",
         ],
       },
       { kind: "h", text: "Core autoloads" },
@@ -223,6 +223,20 @@ const sections: { value: string; label: string; title: string; blocks: Block[] }
           "Resolution — cleaning waste, placing altar items or listening to all three monks marks the realm complete",
         ],
       },
+      { kind: "h", text: "Roadside taxi travel" },
+      {
+        kind: "p",
+        text: "Travel between maps uses a shared, data-driven taxi rank built from scenes/taxi_rank.tscn and scripts/travel/taxi_rank.gd. TravelDestination resources hold each destination scene and arrival position.",
+      },
+      {
+        kind: "list",
+        items: [
+          "Outbound — interacting with the lobby chorten dispatches a taxi from off-screen; boarding with E locks controls before the taxi drives away and changes the scene",
+          "Return — at a realm taxi post, T calls the taxi; the player boards with E and returns to LobbyTaxiStop",
+          "Arrival — the taxi drives in with Tashi hidden inside, pauses for 1.4 seconds, drops Tashi at the rank plus its lane offset, then leaves",
+          "Configuration — destinations are TravelDestination resources, lane_offset positions the parked taxi, and allow_manual_call enables T-key calling in realms",
+        ],
+      },
       { kind: "h", text: "SDLC: four Agile sprints" },
       {
         kind: "list",
@@ -242,7 +256,7 @@ const sections: { value: string; label: string; title: string; blocks: Block[] }
     blocks: [
       {
         kind: "p",
-        text: "All characters use a 48×48 pixel frame bounding box; world tilemaps sit on a 16×16 grid. Sheets are sliced uniformly and animated at 12–16 FPS. Every entity shares a bottom-centre grounding pivot, a 16-bit palette and consistent outline density, exported as RGBA8 with transparent backgrounds.",
+        text: "All characters use a 48×48 pixel frame bounding box; world tilemaps sit on a 16×16 grid. Sheets are sliced uniformly and animated at 12–16 FPS. Every entity shares a bottom-centre grounding pivot, a 16-bit palette and consistent outline density, exported as RGBA8 with transparent backgrounds. The Mystic Woods hero sprite anchors the shared proportions and movement style.",
       },
       {
         kind: "code",
@@ -254,8 +268,9 @@ const sections: { value: string; label: string; title: string; blocks: Block[] }
         items: [
           "Tashi — the Mystic Woods hero base redrawn frame by frame to wear a gho: wrapped robe, wide white lagay cuffs, hoisted kera belt and the pouch above the waist",
           "The monk — Gemini references for robes and posture, palette extracted with ImageColorPicker, drawn over the 48×48 base; strictly idle, so the work went into robe drape and shading",
-          "The grandma NPC — concept art from Ludo.ai's sprite generator, then direct canvas editing to match height, stance and grounding point",
-          "The guide NPC — Gemini design prompts, custom palette, and clothing detail tuned for seamless integration",
+          "Choden the Villager — concept art from Ludo.ai's sprite generator, then direct canvas editing to match height, stance and grounding point",
+          "Kinley the Guide — Gemini design prompts, custom palette, and clothing detail tuned for seamless integration",
+          "The Pilgrim — reference-led design refined on the same 48×48 base for consistent scale and grounding",
           "Tshomen the mermaid — Gemini references for the upper body and tail, tail-swish motion generated in SpriteFlow.io, reassembled and cleaned in Piskel",
         ],
       },
@@ -276,25 +291,16 @@ const sections: { value: string; label: string; title: string; blocks: Block[] }
     blocks: [
       {
         kind: "p",
-        text: "The codebase is covered by GDScript test runners across the full system — dialogue, quests, scene transitions, audio and game state — with every suite passing.",
+        text: "The codebase is covered by 14 GDScript test suites across the full system — dialogue, quests, taxi transitions, audio, spatial rendering and game state — with every suite passing.",
       },
       {
         kind: "code",
-        text: `test_dialogue.gd                 8/8
-test_drakay_pangtsho_quest.gd    9/9
-test_ending_sequence.gd          8/8
-test_game_state.gd               9/9
-test_herder_quest.gd             7/7
-test_mending_quest.gd            7/7
-test_monk.gd                     7/7
-test_music.gd                    9/9
-test_project_setup.gd            5/5
-test_prop_sorting.gd             1/1
-test_scene_transitions.gd        5/5
-test_shrine.gd                   7/7
-test_taktsang_quest.gd           9/9
-test_village_opening.gd          8/8
-TOTAL                        103/103  (100% pass rate)`,
+        text: `AUTOMATED GDSCRIPT TESTING
+14 suites passing
+100% pass rate
+
+Coverage: singletons, dialogue, audio crossfading,
+taxi journeys, quest states and spatial rendering`,
       },
       { kind: "h", text: "What the suites check" },
       {
@@ -303,6 +309,7 @@ TOTAL                        103/103  (100% pass rate)`,
           "Y-sorting and collision alignment — tile sort origins match art height, Y-sorted layers stay at z_index 0, multi-cell collisions cover at least 70% of tile height",
           "Dialogue — unique sequence IDs, non-empty authored text, signal order, early termination, and choice lines that pause until an option is picked",
           "Music — crossfading, same-track guards, interruption handling, per-scene track mapping and loop-point bounds",
+          "Taxi travel — returning from a realm queues one return beat, locks input and waits for LobbyTaxiStop's arrival_completed signal before clearing",
           "Jomolhari pacing gate — mashing triggers Aum Jomo's 'Again. Slower.' and grants zero awareness; deliberate spacing completes the ritual",
           "Drakay Pangtsho — Tshomen re-asks until the water cues are noticed; three waste items update the altar sequence",
           "The Pilgrim's Climb — Dolma follows at a fixed speed, calls out when the player rushes ahead, and settles at the viewpoint",
@@ -352,7 +359,7 @@ TOTAL                        103/103  (100% pass rate)`,
       {
         kind: "list",
         items: [
-          "Full documentation and test coverage for the taxi travel mechanism and the later side quests",
+          "Expanded dedicated test coverage for the taxi travel mechanism and all realm side quests",
           "A dedicated sound-effect layer, including real-time pacing cues at Jomolhari",
           "Dzongkha localisation for terms and place names",
           "Expanded classroom materials, such as discussion guides per subject",

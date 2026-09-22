@@ -46,14 +46,14 @@ const milestones: { phase: string; title: string; items: { label: string; status
       { label: "Drakay Pangtsho observation quest", status: "done" },
       { label: "Taktsang story-assembly quest", status: "done" },
       { label: "Six side quests across the realms", status: "done" },
-      { label: "Taxi travel system documentation", status: "active" },
+      { label: "Taxi travel system documentation", status: "done" },
     ],
   },
   {
     phase: "Sprint 4",
     title: "Testing & polish",
     items: [
-      { label: "Automated suites — 103/103 passing", status: "done" },
+      { label: "Fourteen automated suites — 100% passing", status: "done" },
       { label: "Ending dream & water-bowl arc", status: "done" },
       { label: "Sound-effect layer", status: "active" },
       { label: "User acceptance testing (ages 12–18)", status: "todo" },
