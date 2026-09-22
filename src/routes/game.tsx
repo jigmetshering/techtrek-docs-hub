@@ -261,7 +261,7 @@ function GamePage() {
           <li>
             Clone the repository:{" "}
             <code className="bg-card px-1.5 py-0.5 text-xs">
-              git clone https://github.com/tanwangs/TechTrek-2026-Samsara.git
+              git clone https://github.com/tanwangs/the-tapestry-of-monyul.git
             </code>
           </li>
           <li>In Godot choose <strong>Import</strong> and select the folder containing <code className="text-xs">project.godot</code>.</li>
