@@ -92,13 +92,22 @@ function Index() {
       {/* Statement + stats */}
       <section className="border-b border-border">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-[1.5fr_1fr] md:px-8">
-          <div>
+                    <div>
             <div className="rule-label text-primary">Welcome</div>
             <h2 className="mt-5 text-3xl leading-tight md:text-4xl">
               Play as Tashi, a young villager who stopped believing the old
               teachings mattered — until a dream sends them to three sacred
               places.
             </h2>
+            <div className="mt-6 aspect-video w-full max-w-2xl overflow-hidden border border-border">
+              <iframe
+                src="https://www.youtube.com/embed/oOnbAjUEKRI"
+                title="The Tapestry of Monyul"
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
               Built in Godot 4 for the TechTrek 2026 theme, "Code, Create, and
               Educate." Ley-Ju-Drey — cause and effect — is something the game
