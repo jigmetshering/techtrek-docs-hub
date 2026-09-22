@@ -37,15 +37,15 @@ const beats = [
   },
   {
     title: "Sprint 3 — quests and mechanics",
-    body: "The pacing gate at Jomolhari, the observation quest at the lake, the story-assembly quest at Taktsang — and six side quests about different kinds of attention: stillness, tracking, cooperative care and patience directed at someone else.",
+    body: "The pacing gate at Jomolhari, the observation quest at the lake, the story-assembly quest at Taktsang — plus the roadside taxi system connecting the lobby and realms, and six side quests about different kinds of attention.",
   },
   {
     title: "Sprint 4 — testing and polish",
-    body: "Automated GDScript suites across dialogue, quests, audio, transitions and the ending sequence, all passing, plus the closing dream and the water-bowl arc that pays off the opening scene.",
+    body: "Fourteen automated GDScript suites across dialogue, quests, audio, taxi transitions and the ending sequence, all passing, plus the closing dream and water-bowl arc that pays off the opening scene.",
   },
   {
     title: "Where we are now",
-    body: "The full loop is playable end to end. Still ahead: the sound-effect layer, documentation for the taxi system and later side quests, and user testing with players aged 12–18.",
+    body: "The full loop is playable end to end, and the taxi system is now documented. Still ahead: the sound-effect layer, fuller coverage of later side quests, and user testing with players aged 12–18.",
   },
 ];
 

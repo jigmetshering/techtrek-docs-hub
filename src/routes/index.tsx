@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
 const stats = [
   { value: "3", label: "sacred realms (nyes)" },
   { value: "9", label: "main & side quests" },
-  { value: "103", label: "automated tests passing" },
+  { value: "14", label: "automated test suites passing" },
 ];
 
 const sections = [

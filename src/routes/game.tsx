@@ -73,7 +73,7 @@ const realms = [
 
 const cast = [
   { image: charPlayer, name: "Tashi", role: "The player — a young villager on a nature retreat" },
-  { image: charGuide, name: "The Guide", role: "Crossroads NPC who points the way between realms" },
+  { image: charGuide, name: "Kinley", role: "The guide who points the way between realms" },
   { image: charAumJomo, name: "Aum Jomo", role: "Guardian deity of Jomolhari" },
   { image: charTshomen, name: "Tshomen", role: "Lake deity of Drakay Pangtsho" },
   { image: charMonk, name: "Taktsang monk", role: "Keeper of the monastery's oral history" },
