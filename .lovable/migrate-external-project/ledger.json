@@ -1,7 +1,7 @@
 {
   "source": "https://github.com/tanwangs/TechTrek-2026-Samsara/tree/main",
   "capabilities": [
-    {"capability":"documentation content","source":"README.md and docs/*.md","outcome":"update site copy from the latest repository","status":"in_progress","next_action":"align game, documentation, journey, roadmap, and home facts"},
+    {"capability":"documentation content","source":"README.md and docs/*.md","outcome":"aligned game, documentation, journey, roadmap, and home copy with the latest repository while preserving the user-selected team roles","status":"migrated","next_action":"none"},
     {"capability":"code","source":"documentation-only repository snapshot","outcome":"retain current TanStack website implementation","status":"preserve","next_action":"none"},
     {"capability":"schema","source":"repository inspection","outcome":"no database schema detected","status":"absent","next_action":"none"},
     {"capability":"records","source":"repository inspection","outcome":"no application records detected","status":"absent","next_action":"none"},
@@ -14,6 +14,6 @@
     {"capability":"schedules","source":"repository inspection","outcome":"none detected","status":"absent","next_action":"none"},
     {"capability":"secrets","source":"repository inspection","outcome":"none required","status":"absent","next_action":"none"},
     {"capability":"cutover","source":"current Lovable documentation site","outcome":"content-only update","status":"not_required","next_action":"publish updated site when approved"},
-    {"capability":"verification","source":"current preview","outcome":"pending implementation","status":"pending","next_action":"verify routes, mobile layout, and build"}
+    {"capability":"verification","source":"current preview","outcome":"build passed; home, game, documentation, journey, and roadmap returned 200 on desktop and mobile without overflow or console errors","status":"verified","next_action":"none"}
   ]
 }
