@@ -33,7 +33,7 @@ const beats = [
   },
   {
     title: "Sprint 2 — building the world",
-    body: "Three TileMapLayers per map: ground, props and water. This is where the depth-sorting bug bit us, and where AI-generated decoration had to be converted from loose sprites into proper tile cells.",
+    body: "Three TileMapLayers per map: ground, props/yset and cliff. This is where the depth-sorting bug bit us, and where AI-generated decoration had to be converted from loose sprites into proper tile cells.",
   },
   {
     title: "Sprint 3 — quests and mechanics",
@@ -45,7 +45,7 @@ const beats = [
   },
   {
     title: "Where we are now",
-    body: "The full loop is playable end to end, and the taxi system is now documented. Still ahead: the sound-effect layer, fuller coverage of later side quests, and user testing with players aged 12–18.",
+    body: "The full loop is playable end to end, and all 14 automated suites pass. Still ahead: the dedicated sound-effect layer, continued regression coverage as the game grows, and user testing with players aged 12–18.",
   },
 ];
 

@@ -194,7 +194,7 @@ const sections: { value: string; label: string; title: string; blocks: Block[] }
           ["CollisionShape2D", "Hitboxes for terrain, obstacles and detection areas"],
           ["Camera2D", "Child of the player, tracking movement across maps"],
           ["Area2D", "NPC talk triggers, scene exits and viewpoint hitboxes"],
-          ["TileMapLayer", "Ground, props and water terrain layers"],
+          ["TileMapLayer", "Ground, props/yset and cliff terrain layers"],
         ],
       },
       { kind: "h", text: "Layering & depth" },
@@ -362,7 +362,7 @@ taxi journeys, quest states and spatial rendering`,
       {
         kind: "list",
         items: [
-          "Expanded dedicated test coverage for the taxi travel mechanism and all realm side quests",
+          "Continue expanding regression coverage as later side quests and travel details evolve",
           "A dedicated sound-effect layer, including real-time pacing cues at Jomolhari",
           "Dzongkha localisation for terms and place names",
           "Expanded classroom materials, such as discussion guides per subject",

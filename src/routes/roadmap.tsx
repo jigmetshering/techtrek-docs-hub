@@ -63,7 +63,7 @@ const milestones: { phase: string; title: string; items: { label: string; status
     phase: "Sprint 5",
     title: "Submission",
     items: [
-      { label: "Export target chosen (desktop / HTML5)", status: "active" },
+      { label: "Choose export target (desktop / HTML5)", status: "active" },
       { label: "User manual & screenshots appendix", status: "todo" },
       { label: "Final references and citations", status: "todo" },
       { label: "Submit to TechTrek 2026", status: "todo" },
