@@ -41,11 +41,11 @@ const beats = [
   },
   {
     title: "Sprint 4 — testing and polish",
-    body: "Fourteen automated GDScript suites across dialogue, quests, audio, taxi transitions and the ending sequence, all passing, plus the closing dream and water-bowl arc that pays off the opening scene.",
+    body: "Fourteen automated GDScript suites across dialogue, quests, audio, taxi transitions and the ending sequence, all passing, plus persistent crossfading music, pooled sound effects and the closing dream and water-bowl arc that pays off the opening scene.",
   },
   {
     title: "Where we are now",
-    body: "The full loop is playable end to end, and all 14 automated suites pass. Still ahead: the dedicated sound-effect layer, continued regression coverage as the game grows, and user testing with players aged 12–18.",
+    body: "The full loop is playable end to end, all 14 automated suites pass, and the music and sound-effect managers are implemented. Still ahead: continued regression coverage as the game grows and user testing with players aged 12–18.",
   },
 ];
 

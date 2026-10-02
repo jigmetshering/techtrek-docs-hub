@@ -6,7 +6,7 @@ export const Route = createFileRoute("/roadmap")({
   head: () => ({
     meta: [
       { title: "Roadmap — The Tapestry of Monyul" },
-      { name: "description", content: "Sprint-by-sprint progress on The Tapestry of Monyul, from architecture to submission." },
+      { name: "description", content: "Sprint-by-sprint progress on The Tapestry of Monyul, from architecture through testing and polish." },
       { property: "og:title", content: "Roadmap — The Tapestry of Monyul" },
       { property: "og:description", content: "What is finished, what is in progress and what is still ahead." },
       { property: "og:type", content: "website" },
@@ -55,7 +55,7 @@ const milestones: { phase: string; title: string; items: { label: string; status
     items: [
       { label: "Fourteen automated suites — 100% passing", status: "done" },
       { label: "Ending dream & water-bowl arc", status: "done" },
-      { label: "Sound-effect layer", status: "active" },
+      { label: "Music crossfading & pooled sound effects", status: "done" },
       { label: "User acceptance testing (ages 12–18)", status: "todo" },
     ],
   },
