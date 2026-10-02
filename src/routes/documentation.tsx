@@ -214,6 +214,8 @@ const sections: { value: string; label: string; title: string; blocks: Block[] }
           "DialogueManager — runs conversation sequences, blocks movement while active and emits line-change signals",
           "Global — retains player spawn coordinates across scene transitions",
           "ScreenFade — controls black and white screen transition overlays",
+          "MusicManager — persists music across scenes, crossfades between two AudioStreamPlayer nodes and remembers track position when returning to an area",
+          "SFXManager — pools AudioStreamPlayer nodes for UI and gameplay sounds, varies pitch on repeated cues and resets players after each sound finishes",
         ],
       },
       { kind: "h", text: "Dialogue & quest flow" },
@@ -237,7 +239,34 @@ const sections: { value: string; label: string; title: string; blocks: Block[] }
           "Outbound — interacting with the lobby chorten dispatches a taxi from off-screen; boarding with E locks controls before the taxi drives away and changes the scene",
           "Return — at a realm taxi post, T calls the taxi; the player boards with E and returns to LobbyTaxiStop",
           "Arrival — the taxi drives in with Tashi hidden inside, pauses for 1.4 seconds, drops Tashi at the rank plus its lane offset, then leaves",
-          "Configuration — destinations are TravelDestination resources, lane_offset positions the parked taxi, and allow_manual_call enables T-key calling in realms",
+          "Configuration — destinations are TravelDestination resources, lane_offset positions the parked taxi at (104, 18), and allow_manual_call enables T-key calling in realms",
+        ],
+      },
+      { kind: "h", text: "Music system" },
+      {
+        kind: "p",
+        text: "MusicManager is registered as a global singleton from scripts/music_manager.gd. It keeps background music playing across scene changes and crossfades between two internal AudioStreamPlayer nodes so area changes never cut abruptly.",
+      },
+      {
+        kind: "list",
+        items: [
+          "Main menu and overworld — main_theme.ogg loops and continues across map transitions",
+          "Sacred sites — shrine_theme.ogg crossfades in when the player enters a shrine-zone trigger",
+          "State memory — the current track and timestamp are retained, allowing a returning area to resume without restarting",
+        ],
+      },
+      { kind: "h", text: "Sound-effects system" },
+      {
+        kind: "p",
+        text: "SFXManager is registered from scripts/sfx_manager.gd and provides fire-and-forget sound playback without adding audio players to every world node.",
+      },
+      {
+        kind: "list",
+        items: [
+          "Audio pooling — play_sfx() reuses an inactive AudioStreamPlayer or creates one when the pool is busy",
+          "Pitch variation — footsteps, interface clicks and typewriter text receive subtle random pitch shifts to reduce repetition",
+          "Automatic cleanup — finished sounds clear their stream, reset volume and pitch, and return their player to the inactive pool",
+          "Mapped cues — dialogue choices, page turns, footsteps, water cleansing, offering placement and taxi arrivals each trigger a dedicated sound",
         ],
       },
       { kind: "h", text: "SDLC: four Agile sprints" },
@@ -363,7 +392,6 @@ taxi journeys, quest states and spatial rendering`,
         kind: "list",
         items: [
           "Continue expanding regression coverage as later side quests and travel details evolve",
-          "A dedicated sound-effect layer, including real-time pacing cues at Jomolhari",
           "Dzongkha localisation for terms and place names",
           "Expanded classroom materials, such as discussion guides per subject",
           "Additional sacred realms following the established pattern",
@@ -452,8 +480,8 @@ const editorImages: Record<string, EditorImage[]> = {
     {
       src: shotAutoloads,
       alt: "Godot project settings listing the Global, GameState, DialogueManager and ScreenFade autoloads",
-      title: "The four autoload singletons",
-      caption: "Global, GameState, DialogueManager and ScreenFade are registered as autoloads and drive state, dialogue and transitions everywhere.",
+      title: "The original four autoload singletons",
+      caption: "Global, GameState, DialogueManager and ScreenFade drive state, dialogue and transitions; MusicManager and SFXManager now extend the same global architecture for audio.",
     },
     {
       src: shotTilemapLayers,
