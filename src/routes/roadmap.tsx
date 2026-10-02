@@ -59,16 +59,13 @@ const milestones: { phase: string; title: string; items: { label: string; status
       { label: "User acceptance testing (ages 12–18)", status: "todo" },
     ],
   },
-  {
-    phase: "Beyond",
-    title: "Future enhancements",
-    items: [
-      { label: "Dzongkha localisation", status: "todo" },
-      { label: "Classroom discussion guides", status: "todo" },
-      { label: "Additional sacred realms", status: "todo" },
-      { label: "Accessibility: remappable keys, text speed", status: "todo" },
-    ],
-  },
+];
+
+const futureEnhancements: { label: string; note: string }[] = [
+  { label: "Dzongkha localisation", note: "Full dialogue translation with a language toggle" },
+  { label: "Classroom discussion guides", note: "Printable prompts tied to each realm's lesson" },
+  { label: "Additional sacred realms", note: "New nyes explored beyond the initial three" },
+  { label: "Accessibility: remappable keys, text speed", note: "Player comfort and readability options" },
 ];
 
 const styles: Record<Status, { icon: typeof Check; cls: string; label: string }> = {
