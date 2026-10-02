@@ -59,16 +59,13 @@ const milestones: { phase: string; title: string; items: { label: string; status
       { label: "User acceptance testing (ages 12–18)", status: "todo" },
     ],
   },
-  {
-    phase: "Beyond",
-    title: "Future enhancements",
-    items: [
-      { label: "Dzongkha localisation", status: "todo" },
-      { label: "Classroom discussion guides", status: "todo" },
-      { label: "Additional sacred realms", status: "todo" },
-      { label: "Accessibility: remappable keys, text speed", status: "todo" },
-    ],
-  },
+];
+
+const futureEnhancements: { label: string; note: string }[] = [
+  { label: "Dzongkha localisation", note: "Full dialogue translation with a language toggle" },
+  { label: "Classroom discussion guides", note: "Printable prompts tied to each realm's lesson" },
+  { label: "Additional sacred realms", note: "New nyes explored beyond the initial three" },
+  { label: "Accessibility: remappable keys, text speed", note: "Player comfort and readability options" },
 ];
 
 const styles: Record<Status, { icon: typeof Check; cls: string; label: string }> = {
@@ -126,6 +123,23 @@ function RoadmapPage() {
             </ul>
           </div>
         ))}
+      </div>
+
+      <div className="mt-12 border-t-2 border-border pt-10">
+        <div className="rule-label text-primary">Not part of the current plan</div>
+        <h3 className="mt-2 font-display text-2xl font-extrabold tracking-tight">Future enhancements</h3>
+        <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+          Ideas we hope to explore after the sprint plan is complete. These are separate from the project's
+          main objectives and are not counted in the progress above.
+        </p>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          {futureEnhancements.map((f) => (
+            <div key={f.label} className="border border-border/60 bg-card/50 p-5">
+              <div className="font-display text-base font-bold tracking-tight">{f.label}</div>
+              <div className="mt-1 text-sm text-muted-foreground">{f.note}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
