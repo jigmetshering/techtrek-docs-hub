@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 
 const items = [
   { title: "The Game", url: "/game" },
+  { title: "Play the Game", url: "/play" },
   { title: "The Team", url: "/team" },
   { title: "Our Journey", url: "/journey" },
   { title: "Documentation", url: "/documentation" },
