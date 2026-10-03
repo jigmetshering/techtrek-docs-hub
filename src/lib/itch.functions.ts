@@ -23,7 +23,7 @@ export const getGameEmbedUrl = createServerFn({ method: "GET" }).handler(async (
     });
     if (!res.ok) throw new Error(`itch.io responded ${res.status}`);
     const html = await res.text();
-    const match = html.match(/https:\/\/html-classic\.itch\.zone\/html\/\d+\/[^"']+index\.html\?[^"']+/);
+    const match = html.match(/https:\/\/html-classic\.itch\.zone\/html\/[^"'\s]+index\.html(?:\?v=\d+)?/);
     const url = match ? match[0] : null;
     cached = { url, at: Date.now() };
     return url;
