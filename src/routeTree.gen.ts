@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
+import { Route as PlayRouteImport } from './routes/play'
 import { Route as JourneyRouteImport } from './routes/journey'
 import { Route as GameRouteImport } from './routes/game'
 import { Route as DocumentationRouteImport } from './routes/documentation'
@@ -25,6 +26,11 @@ const TeamRoute = TeamRouteImport.update({
 const RoadmapRoute = RoadmapRouteImport.update({
   id: '/roadmap',
   path: '/roadmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlayRoute = PlayRouteImport.update({
+  id: '/play',
+  path: '/play',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JourneyRoute = JourneyRouteImport.update({
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/documentation': typeof DocumentationRoute
   '/game': typeof GameRoute
   '/journey': typeof JourneyRoute
+  '/play': typeof PlayRoute
   '/roadmap': typeof RoadmapRoute
   '/team': typeof TeamRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/documentation': typeof DocumentationRoute
   '/game': typeof GameRoute
   '/journey': typeof JourneyRoute
+  '/play': typeof PlayRoute
   '/roadmap': typeof RoadmapRoute
   '/team': typeof TeamRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/documentation': typeof DocumentationRoute
   '/game': typeof GameRoute
   '/journey': typeof JourneyRoute
+  '/play': typeof PlayRoute
   '/roadmap': typeof RoadmapRoute
   '/team': typeof TeamRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/documentation'
     | '/game'
     | '/journey'
+    | '/play'
     | '/roadmap'
     | '/team'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/documentation'
     | '/game'
     | '/journey'
+    | '/play'
     | '/roadmap'
     | '/team'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/documentation'
     | '/game'
     | '/journey'
+    | '/play'
     | '/roadmap'
     | '/team'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   DocumentationRoute: typeof DocumentationRoute
   GameRoute: typeof GameRoute
   JourneyRoute: typeof JourneyRoute
+  PlayRoute: typeof PlayRoute
   RoadmapRoute: typeof RoadmapRoute
   TeamRoute: typeof TeamRoute
 }
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/roadmap'
       fullPath: '/roadmap'
       preLoaderRoute: typeof RoadmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/play': {
+      id: '/play'
+      path: '/play'
+      fullPath: '/play'
+      preLoaderRoute: typeof PlayRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/journey': {
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   DocumentationRoute: DocumentationRoute,
   GameRoute: GameRoute,
   JourneyRoute: JourneyRoute,
+  PlayRoute: PlayRoute,
   RoadmapRoute: RoadmapRoute,
   TeamRoute: TeamRoute,
 }
