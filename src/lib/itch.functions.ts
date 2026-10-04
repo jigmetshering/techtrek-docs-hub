@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 
-/** Official itch.io embed URL for the game's browser build (upload id 3379606). */
-const EMBED_URL = "https://itch.io/embed-upload/3379606";
+/** Official itch.io embed URL for the game's browser build (upload id 19538296). */
+const EMBED_URL = "https://itch.io/embed-upload/19538296";
 
 /**
  * Returns the itch.io embed URL for the game's browser build.
