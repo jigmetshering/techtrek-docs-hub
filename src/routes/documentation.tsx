@@ -7,6 +7,12 @@ import shotTilemapLayers from "@/assets/shot-tilemap-layers.png";
 import shotSceneTree from "@/assets/shot-scene-tree.png";
 import shotTaxiRank from "@/assets/shot-taxi-rank.png";
 import shotYsortFix from "@/assets/shot-ysort-fix.png";
+import aumJomoSheet from "@/assets/aumjomo-spritesheet.png.asset.json";
+import guideSheet from "@/assets/guide-spritesheet.png.asset.json";
+import playerSheet from "@/assets/player-spritesheet.png.asset.json";
+import monkSheet from "@/assets/taktsangmonk-spritesheet.png.asset.json";
+import tshomenSheet from "@/assets/tshomen-spritesheet.png.asset.json";
+import herderSheet from "@/assets/yak_herder-spritesheet.png.asset.json";
 
 export const Route = createFileRoute("/documentation")({
   head: () => ({
@@ -520,6 +526,39 @@ const editorImages: Record<string, EditorImage[]> = {
   ],
 };
 
+const spriteSheets = [
+  {
+    src: playerSheet.url,
+    name: "Tashi",
+    caption: "The complete player movement and interaction sheet.",
+  },
+  {
+    src: guideSheet.url,
+    name: "Kinley",
+    caption: "The guide’s full set of directional poses.",
+  },
+  {
+    src: aumJomoSheet.url,
+    name: "Aum Jomo",
+    caption: "The guardian deity’s complete character sheet.",
+  },
+  {
+    src: tshomenSheet.url,
+    name: "Tshomen",
+    caption: "Lake-deity movement, idle and tail-swish frames.",
+  },
+  {
+    src: monkSheet.url,
+    name: "Taktsang monk",
+    caption: "The monk’s directional and seated poses.",
+  },
+  {
+    src: herderSheet.url,
+    name: "Dema",
+    caption: "The yak herder’s full directional sprite set.",
+  },
+];
+
 function renderBlock(b: Block, i: number) {
   switch (b.kind) {
     case "h":
@@ -634,6 +673,33 @@ function DocsPage() {
                     </figure>
                   ))}
                 </div>
+              ) : null}
+              {s.value === "art" ? (
+                <section className="mt-10 border-t border-border pt-8">
+                  <div className="rule-label text-primary">Complete repository artwork</div>
+                  <h3 className="mt-3 font-display text-2xl font-extrabold tracking-tight">Character sprite sheets</h3>
+                  <p className="mt-3 max-w-2xl text-muted-foreground">
+                    Every unique character image included in the project repository, shown at full-sheet scale to document the directional, walking and interaction frames.
+                  </p>
+                  <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+                    {spriteSheets.map((sprite) => (
+                      <figure key={sprite.name} className="border border-border bg-secondary">
+                        <div className="flex aspect-[3/5] items-center justify-center overflow-hidden p-4 sm:p-6">
+                          <img
+                            src={sprite.src}
+                            alt={`${sprite.name} complete pixel-art sprite sheet`}
+                            loading="lazy"
+                            className="h-full w-full object-contain [image-rendering:pixelated]"
+                          />
+                        </div>
+                        <figcaption className="border-t border-border bg-card p-4">
+                          <span className="font-display text-base font-extrabold sm:text-lg">{sprite.name}</span>
+                          <span className="mt-1 block text-sm text-muted-foreground">{sprite.caption}</span>
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                </section>
               ) : null}
             </article>
           </TabsContent>
