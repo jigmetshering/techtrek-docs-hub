@@ -7,5 +7,5 @@
 - [x] Verify the affected pages and current build.
 - [x] Align Development documentation with the latest music and sound-effects architecture.
 - [x] Verify the updated Documentation, Journey, and Roadmap pages.
-- [ ] Add every unique image from the latest repository to the website.
-- [ ] Verify the complete sprite gallery on desktop and mobile.
+- [x] Add every unique image from the latest repository to the website.
+- [x] Verify the complete sprite gallery on desktop and mobile.
