@@ -7,13 +7,13 @@
     {"capability":"records","source":"repository inspection","outcome":"no application records detected","status":"absent","next_action":"none"},
     {"capability":"auth identities","source":"repository inspection","outcome":"no authentication detected","status":"absent","next_action":"none"},
     {"capability":"authorization","source":"repository inspection","outcome":"no authorization detected","status":"absent","next_action":"none"},
-    {"capability":"uploaded file bytes","source":"repository images and existing managed site assets","outcome":"preserve existing site assets; no replacement requested","status":"preserve","next_action":"none"},
+    {"capability":"uploaded file bytes","source":"six unique repository character sheets; byte-identical copies under docs/images excluded","outcome":"all six full sprite sheets added to the Documentation art gallery as managed assets; existing cropped portraits preserved","status":"migrated","next_action":"none"},
     {"capability":"external providers","source":"repository inspection","outcome":"no runtime provider integration detected","status":"absent","next_action":"none"},
     {"capability":"public endpoints","source":"repository inspection","outcome":"none detected","status":"absent","next_action":"none"},
     {"capability":"callbacks and webhooks","source":"repository inspection","outcome":"none detected","status":"absent","next_action":"none"},
     {"capability":"schedules","source":"repository inspection","outcome":"none detected","status":"absent","next_action":"none"},
     {"capability":"secrets","source":"repository inspection","outcome":"none required","status":"absent","next_action":"none"},
     {"capability":"cutover","source":"current Lovable documentation site","outcome":"content-only update","status":"not_required","next_action":"publish updated site when approved"},
-    {"capability":"verification","source":"current preview","outcome":"build passed; documentation, journey, and roadmap returned 200 on desktop and mobile without overflow or console errors","status":"verified","next_action":"none"}
+    {"capability":"verification","source":"current preview","outcome":"build passed; all six 288×480 sprite sheets loaded in the Documentation art gallery on desktop and mobile without overflow or console errors","status":"verified","next_action":"none"}
   ]
 }
