@@ -157,13 +157,13 @@ function Index() {
               src={screenVillage}
               alt="The village map in the current build"
               loading="lazy"
-              className="w-full border border-border object-cover [image-rendering:pixelated]"
+              className="aspect-video w-full border border-border object-cover [image-rendering:pixelated]"
             />
             <img
               src={screenRealm}
               alt="A sacred realm map in the current build"
               loading="lazy"
-              className="w-full border border-border object-cover [image-rendering:pixelated]"
+              className="aspect-video w-full border border-border object-cover [image-rendering:pixelated]"
             />
           </div>
         </div>
