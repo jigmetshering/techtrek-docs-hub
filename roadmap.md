@@ -11,3 +11,5 @@
 - [x] Verify the complete sprite gallery on desktop and mobile.
 - [x] Add photo, email and personal-interests fields to the team profiles.
 - [x] Verify the team profiles on desktop and mobile.
+- [x] Add Tandin's and Sangay's personal interests to their team profiles.
+- [ ] Add Jigme's personal interests and all three team photos once supplied.
