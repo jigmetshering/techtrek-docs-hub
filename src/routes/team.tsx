@@ -36,7 +36,7 @@ const members: Member[] = [
     bio: "Builds the game in Godot — player physics, autoloads, quest scripts and the automated GDScript test suite.",
     initial: "TW",
     photo: "",
-    email: "",
+    email: "tandin.wangyel2023@academy.bt",
     interests: [],
   },
   {
@@ -45,7 +45,7 @@ const members: Member[] = [
     bio: "Shapes the storyline and writes the project documentation, and owns this site and the public-facing material.",
     initial: "JT",
     photo: "",
-    email: "",
+    email: "jigme.tshering2023@academy.bt",
     interests: [],
   },
   {
@@ -54,7 +54,7 @@ const members: Member[] = [
     bio: "Draws the pixel art — Tashi's gho, the monks, the deities and the Bhutanese architecture props.",
     initial: "ST",
     photo: "",
-    email: "",
+    email: "sangay.tharchen2023@academy.bt",
     interests: [],
   },
 ];
