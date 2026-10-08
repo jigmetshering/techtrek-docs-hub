@@ -37,7 +37,7 @@ const members: Member[] = [
     initial: "TW",
     photo: "",
     email: "tandin.wangyel2023@academy.bt",
-    interests: [],
+    interests: ["Space and tech", "Volleyball", "Gaming", "Music"],
   },
   {
     name: "Jigme Tshering",
