@@ -10,4 +10,4 @@
 - [x] Add every unique image from the latest repository to the website.
 - [x] Verify the complete sprite gallery on desktop and mobile.
 - [x] Add photo, email and personal-interests fields to the team profiles.
-- [ ] Verify the team profiles on desktop and mobile.
+- [x] Verify the team profiles on desktop and mobile.
