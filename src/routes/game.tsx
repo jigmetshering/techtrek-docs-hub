@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
-import heroArt from "@/assets/game-hero.jpg";
+import gameLogo from "@/assets/tapestry-of-monyul-logo.png.asset.json";
 import shotShrine from "@/assets/shot-shrine.png";
 import shotLake from "@/assets/shot-lake.png";
 import shotBridge from "@/assets/shot-bridge.png";
@@ -117,17 +117,14 @@ function GamePage() {
         description="A 2D top-down narrative exploration game built for TechTrek 2026 by team Samsara. Working title in the development docs: The Forgotten Thread."
       />
 
-      <section className="overflow-hidden border border-border">
+      <section className="grid items-start gap-10 lg:grid-cols-2">
         <img
-          src={heroArt}
-          alt="Key art: a traveller overlooking a calm Himalayan range"
-          width={1600}
-          height={900}
-          className="w-full object-cover"
+          src={gameLogo.url}
+          alt="The Tapestry of Monyul — pixel-art poster of mountains, monastery and prayer flags"
+          width={480}
+          height={480}
+          className="w-full border border-border"
         />
-      </section>
-
-      <section className="grid gap-10 lg:grid-cols-[1.5fr_1fr]">
         <div className="space-y-4">
           <h2 className="text-3xl">Preface</h2>
           <p className="text-lg text-muted-foreground">
