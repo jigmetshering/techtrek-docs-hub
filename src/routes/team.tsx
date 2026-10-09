@@ -46,7 +46,7 @@ const members: Member[] = [
     initial: "JT",
     photo: "",
     email: "jigme.tshering2023@academy.bt",
-    interests: [],
+    interests: ["Chess", "Music", "Writing", "Reading"],
   },
   {
     name: "Sangay Tharchen",
