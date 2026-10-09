@@ -34,12 +34,16 @@ export const Route = createFileRoute("/game")({
   component: GamePage,
 });
 
-const facts = [
+const facts: { label: string; value: string; wide?: boolean }[] = [
   { label: "Genre", value: "2D top-down narrative RPG" },
   { label: "Session length", value: "30–45 minutes" },
   { label: "Engine", value: "Godot 4 (GDScript)" },
-  { label: "Controls", value: "WASD / arrows, E to interact, T for taxi" },
   { label: "Audience", value: "Ages 12–18+, classroom friendly" },
+  {
+    label: "Controls",
+    value: "WASD / arrows, E to interact, T for taxi",
+    wide: true,
+  },
 ];
 
 const realms = [
@@ -149,17 +153,25 @@ function GamePage() {
             <li>Choose any of the three sacred realms first — each has a main quest and two side quests.</li>
             <li>Earn Awareness by noticing things, not by rushing; it decides how the story closes.</li>
           </ul>
-          <aside className="mt-2 border border-border bg-card p-6">
-            <div className="rule-label text-primary">At a glance</div>
-            <dl className="mt-5 space-y-3">
-              {facts.map((f) => (
-                <div key={f.label} className="flex justify-between gap-4 border-b border-border/60 pb-2 text-sm">
-                  <dt className="text-muted-foreground">{f.label}</dt>
-                  <dd className="text-right font-medium">{f.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </aside>
+        </div>
+      </section>
+
+      <section className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 border-y border-border bg-card px-5 py-10 md:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="rule-label text-primary">At a glance</div>
+          <dl className="mt-5 grid gap-x-10 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+            {facts.map((f) => (
+              <div
+                key={f.label}
+                className={`flex items-baseline justify-between gap-4 border-b border-border/60 pb-2 text-sm ${
+                  f.wide ? "sm:col-span-2 lg:col-span-2" : ""
+                }`}
+              >
+                <dt className="text-muted-foreground">{f.label}</dt>
+                <dd className="text-right font-medium">{f.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
