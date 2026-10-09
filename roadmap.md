@@ -14,3 +14,4 @@
 - [x] Add Tandin's and Sangay's personal interests to their team profiles.
 - [x] Add Jigme's personal interests to his team profile.
 - [ ] Add all three team photos once supplied.
+- [ ] Check the latest repository for new images and add any missing pictures.
