@@ -38,8 +38,12 @@ const facts = [
   { label: "Genre", value: "2D top-down narrative RPG" },
   { label: "Session length", value: "30–45 minutes" },
   { label: "Engine", value: "Godot 4 (GDScript)" },
-  { label: "Controls", value: "WASD / arrows, E to interact, T for taxi" },
   { label: "Audience", value: "Ages 12–18+, classroom friendly" },
+  {
+    label: "Controls",
+    value: "WASD / arrows, E to interact, T for taxi",
+    wide: true,
+  },
 ];
 
 const realms = [
