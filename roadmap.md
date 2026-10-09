@@ -14,3 +14,4 @@
 - [x] Add Tandin's and Sangay's personal interests to their team profiles.
 - [x] Add Jigme's personal interests to his team profile.
 - [ ] Add all three team photos once supplied.
+- [x] Check the latest repository images: all six unique sprite sheets are already displayed; no team photos are supplied.
