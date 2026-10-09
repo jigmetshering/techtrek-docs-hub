@@ -117,13 +117,13 @@ function GamePage() {
         description="A 2D top-down narrative exploration game built for TechTrek 2026 by team Samsara. Working title in the development docs: The Forgotten Thread."
       />
 
-      <section className="grid items-start gap-10 lg:grid-cols-2">
+      <section className="grid items-start gap-10 md:grid-cols-2">
         <img
           src={gameLogo.url}
           alt="The Tapestry of Monyul — pixel-art poster of mountains, monastery and prayer flags"
           width={480}
           height={480}
-          className="w-full border border-border"
+          className="mx-auto w-full max-w-md border border-border md:max-w-none"
         />
         <div className="space-y-4">
           <h2 className="text-3xl">Preface</h2>
