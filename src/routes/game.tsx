@@ -34,7 +34,7 @@ export const Route = createFileRoute("/game")({
   component: GamePage,
 });
 
-const facts = [
+const facts: { label: string; value: string; wide?: boolean }[] = [
   { label: "Genre", value: "2D top-down narrative RPG" },
   { label: "Session length", value: "30–45 minutes" },
   { label: "Engine", value: "Godot 4 (GDScript)" },
@@ -163,7 +163,9 @@ function GamePage() {
             {facts.map((f) => (
               <div
                 key={f.label}
-                className="flex items-baseline justify-between gap-4 border-b border-border/60 pb-2 text-sm"
+                className={`flex items-baseline justify-between gap-4 border-b border-border/60 pb-2 text-sm ${
+                  f.wide ? "sm:col-span-2 lg:col-span-2" : ""
+                }`}
               >
                 <dt className="text-muted-foreground">{f.label}</dt>
                 <dd className="text-right font-medium">{f.value}</dd>
