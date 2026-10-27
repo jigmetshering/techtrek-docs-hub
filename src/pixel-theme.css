@@ -1,0 +1,110 @@
+/* Provisional pixel theme. Remove the body class to restore the editorial look. */
+.pixel-theme {
+  --font-display: "Pixelify Sans", monospace;
+  --background: oklch(0.965 0.022 145);
+  --foreground: oklch(0.25 0.04 175);
+  --card: oklch(0.99 0.008 145);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.43 0.085 165);
+  --primary-foreground: oklch(0.99 0.008 145);
+  --secondary: oklch(0.915 0.045 145);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--secondary);
+  --muted-foreground: oklch(0.43 0.035 175);
+  --accent: oklch(0.83 0.13 90);
+  --accent-foreground: var(--foreground);
+  --border: oklch(0.70 0.065 160);
+  --input: var(--border);
+  --ring: var(--primary);
+  --mint: var(--primary);
+  --pixel-grid: color-mix(in oklab, var(--primary) 5%, transparent);
+  --pixel-shadow: 4px 4px 0 var(--foreground);
+  --pixel-highlight: var(--accent);
+}
+
+.pixel-theme main {
+  background-image: linear-gradient(to right, var(--pixel-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--pixel-grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.pixel-theme :is(h1, h2, h3, h4, h5, .font-display, .display-xl) {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.pixel-theme .rule-label {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.pixel-theme > #app { isolation: isolate; }
+
+.pixel-theme header.sticky {
+  border-bottom: 3px solid var(--foreground);
+  background: var(--background);
+  backdrop-filter: none;
+}
+
+.pixel-theme header.sticky > div:first-child {
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--primary) 0 24px, var(--accent) 24px 48px, var(--secondary) 48px 72px);
+}
+
+.pixel-theme header.sticky nav a {
+  white-space: nowrap;
+}
+
+.pixel-theme :is(a, button)[class~="bg-primary"] {
+  border: 2px solid var(--foreground);
+  box-shadow: var(--pixel-shadow);
+  transition: transform 120ms steps(2), box-shadow 120ms steps(2);
+}
+
+.pixel-theme :is(a, button)[class~="bg-primary"]:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--foreground);
+}
+
+.pixel-theme :is(a, button)[class~="bg-primary"]:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--foreground);
+}
+
+.pixel-theme article[class~="bg-card"] {
+  border: 2px solid var(--foreground);
+  box-shadow: var(--pixel-shadow);
+}
+
+.pixel-theme :is(input, textarea) {
+  border-width: 2px;
+  border-radius: 0;
+}
+
+.pixel-theme :is(a, button):focus-visible {
+  outline: 3px dashed var(--primary);
+  outline-offset: 5px;
+}
+
+.pixel-theme footer {
+  border-top: 6px solid var(--accent);
+}
+
+.pixel-theme .pixel-hero-title {
+  text-shadow: 4px 4px 0 var(--foreground);
+}
+
+.pixel-theme .pixel-hero-title span {
+  color: var(--pixel-highlight);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-theme :is(a, button)[class~="bg-primary"] { transition: none; }
+}
