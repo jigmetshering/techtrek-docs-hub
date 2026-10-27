@@ -1,5 +1,6 @@
 # Roadmap
 
+- [ ] Try a pixel-inspired website design and verify pages and navigation.
 - [x] Align public game facts with the latest repository documentation.
 - [x] Add the documented roadside taxi architecture and updated layer details.
 - [x] Replace unsupported test totals with the repository's current 14-suite, 100% result.

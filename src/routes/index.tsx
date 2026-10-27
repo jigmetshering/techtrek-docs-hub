@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import heroArt from "@/assets/game-hero.jpg";
 import screenVillage from "@/assets/screen-village.png";
 import screenRealm from "@/assets/screen-realm.png";
 import charPlayer from "@/assets/char-player.png";
@@ -53,18 +52,16 @@ function Index() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative flex min-h-[78vh] items-end overflow-hidden">
+      <section className="relative flex min-h-[72vh] items-end overflow-hidden border-b-4 border-primary">
         <img
-          src={heroArt}
-          alt="Key art: a traveller overlooking a Himalayan range"
-          width={1600}
-          height={900}
-          className="absolute inset-0 h-full w-full object-cover"
+          src={screenVillage}
+          alt="Pixel-art village from The Tapestry of Monyul"
+          className="absolute inset-0 h-full w-full object-cover [image-rendering:pixelated]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/70 to-foreground/20" />
         <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-28 md:px-8">
           <div className="rule-label text-background/70">TechTrek 2026 · Team Samsara</div>
-          <h1 className="display-xl mt-6 max-w-4xl text-5xl text-background sm:text-6xl md:text-8xl">
+          <h1 className="pixel-hero-title display-xl mt-6 max-w-4xl text-5xl text-background sm:text-6xl md:text-8xl">
             The Tapestry of <span className="text-primary">Monyul.</span>
           </h1>
           <p className="mt-7 max-w-xl text-lg text-background/80">
