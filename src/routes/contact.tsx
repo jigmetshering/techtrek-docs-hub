@@ -7,6 +7,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Github, Send, Gamepad2 } from "lucide-react";
 import { toast } from "sonner";
+import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Please enter your name").max(100, "Name is too long"),
+  email: z.string().trim().email("Please enter a valid email").max(255),
+  message: z.string().trim().min(1, "Please write a message").max(2000, "Message is too long"),
+});
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -35,15 +43,28 @@ function ContactPage() {
 
       <div className="mt-10 grid gap-6 md:grid-cols-[1.2fr_1fr]">
         <form
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
-            setSending(true);
             const form = e.currentTarget;
-            setTimeout(() => {
-              setSending(false);
-              toast.success("Thanks! We'll get back to you soon.");
-              form.reset();
-            }, 700);
+            const fd = new FormData(form);
+            const parsed = contactSchema.safeParse({
+              name: fd.get("name"),
+              email: fd.get("email"),
+              message: fd.get("message"),
+            });
+            if (!parsed.success) {
+              toast.error(parsed.error.issues[0]?.message ?? "Please check the form.");
+              return;
+            }
+            setSending(true);
+            const { error } = await supabase.from("contact_submissions").insert(parsed.data);
+            setSending(false);
+            if (error) {
+              toast.error("Sorry, your message couldn't be sent. Please try again.");
+              return;
+            }
+            toast.success("Thanks! We'll get back to you soon.");
+            form.reset();
           }}
           className="border border-border bg-card p-6"
         >
