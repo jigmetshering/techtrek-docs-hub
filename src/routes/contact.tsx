@@ -71,15 +71,15 @@ function ContactPage() {
           <div className="grid gap-4">
             <div>
               <Label htmlFor="name">Name</Label>
-              <Input id="name" required placeholder="Your name" className="mt-1.5" />
+              <Input id="name" name="name" maxLength={100} required placeholder="Your name" className="mt-1.5" />
             </div>
             <div>
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" required placeholder="you@example.com" className="mt-1.5" />
+              <Input id="email" name="email" maxLength={255} type="email" required placeholder="you@example.com" className="mt-1.5" />
             </div>
             <div>
               <Label htmlFor="message">Message</Label>
-              <Textarea id="message" required rows={5} placeholder="What's on your mind?" className="mt-1.5" />
+              <Textarea id="message" name="message" maxLength={2000} required rows={5} placeholder="What's on your mind?" className="mt-1.5" />
             </div>
             <Button type="submit" disabled={sending} className="rule-label">
               <Send className="mr-2 h-4 w-4" />
